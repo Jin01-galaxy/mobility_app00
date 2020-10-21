@@ -30,6 +30,12 @@ class _MyHomePageState extends State<MyHomePage> {
       tp += 20;
     });
   }
+  void changedata2() {
+    setState(() {
+      mp += 10;
+      tp += 30;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.all(10.0),
                 // constraints: BoxConstraints.expand(),
                 width: 300,
-                height: 170,
+                height: 140,
                 alignment: Alignment.center,
                 // transform: Matrix4.rotationZ(0.5),
                 decoration: BoxDecoration(
@@ -80,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(20.0),
               color: Colors.grey,
               width: 300,
-              height: 100,
+              height: 70,
               alignment: Alignment.center,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -123,20 +129,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   'MP:$mp TP:$tp',
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 )),
-            // Container(
-            //     padding: EdgeInsets.fromLTRB(0, 20, 0, 5),
-            //     child: Column(
-            //       children: <Widget>[
-            //         FlutterLogo(size: 40),
-            //       ],
-            //     )),
+            
             Container(
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                 child: RaisedButton.icon(
                   onPressed: changedata,
                   icon: Icon(Icons.accessibility_new_rounded),
-                  label: Text('Move'),
-                )),
+                  label: Text('密です！'),
+                ),
+            ),
+            Container(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                child: RaisedButton.icon(
+                  onPressed: changedata2,
+                  icon: Icon(Icons.accessibility_new_rounded),
+                  label: Text('俵獲得'),
+                ),
+            ),
             Image.asset(
               '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/IMG_3773.jpeg',
               width: 200,
