@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void changedata() {
     setState(() {
       mp -= 10;
-      tp += 20;
+      tp -= 50;
     });
   }
   void changedata2() {
