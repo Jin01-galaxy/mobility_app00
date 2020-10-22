@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobility_app00/pages/chaya_shop.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,8 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
       } else if (3 >= tp && tp > 0) {
         tp -= 1;
         str = 'トンビに俵をつつかれました！';
-      } else if (tp==0) {
-        str = '甘酒を飲んで休憩';
+      } else if (tp == 0) {
+        str = '出がらし茶を飲んで休憩';
       }
     });
   }
@@ -44,24 +45,26 @@ class _MyHomePageState extends State<MyHomePage> {
   void changedata2() {
     setState(() {
       mp -= 20;
-      tp += 3;
+      tp += 1;
       str = '町人から俵を貰いました！';
     });
   }
+
+  void changescene() {}
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mobility App'),
+        title: Text('モビリティの巻'),
       ),
       body: Center(
         child: Column(
           children: <Widget>[
             Container(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-              child: Text('俵獲得イベント',
-                  style: TextStyle(fontSize: 30, color: Colors.blue[800])),
+              child: Text('イベントが発生♬',
+                  style: TextStyle(fontSize: 15, color: Colors.blue[800])),
             ),
             Container(
                 padding: EdgeInsets.all(10.0),
@@ -73,14 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   border: Border.all(
-                    color: Colors.blueGrey,
+                    color: Colors.brown,
                     width: 5.0,
                     style: BorderStyle.solid,
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: Colors.brown,
                       blurRadius: 4.0,
                       spreadRadius: 3.0,
                     )
@@ -96,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )),
             Container(
               margin: EdgeInsets.all(20.0),
-              color: Colors.grey,
+              color: Colors.brown,
               width: 300,
               height: 70,
               alignment: Alignment.center,
@@ -120,14 +123,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   border: Border.all(
-                    color: Colors.blueGrey,
+                    color: Colors.brown,
                     width: 5.0,
                     style: BorderStyle.solid,
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: Colors.brown,
                       blurRadius: 4.0,
                       spreadRadius: 3.0,
                     )
@@ -142,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 )),
             Container(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+              padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: RaisedButton.icon(
                 onPressed: changedata,
                 icon: Icon(Icons.accessibility_new_rounded),
@@ -150,11 +153,24 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: RaisedButton.icon(
                 onPressed: changedata2,
-                icon: Icon(Icons.accessibility_new_rounded),
+                icon: Icon(Icons.thumb_up),
                 label: Text('俵獲得'),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: RaisedButton.icon(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SecondRoute()),
+                  );
+                },
+                icon: Icon(Icons.home),
+                label: Text('茶屋出現!!'),
               ),
             ),
             Image.asset(
