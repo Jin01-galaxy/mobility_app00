@@ -22,18 +22,30 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int mp = 100;
-  int tp = 100;
+  int tp = 1;
+  String str = 'いろいろなイベントが起きるよ';
 
   void changedata() {
     setState(() {
-      mp -= 10;
-      tp -= 50;
+      mp += 20;
+
+      if (tp > 3) {
+        tp = 0;
+        str = '置き引きに遭い俵を失いました！';
+      } else if (3 >= tp && tp > 0) {
+        tp -= 1;
+        str = 'トンビに俵をつつかれました！';
+      } else if (tp==0) {
+        str = '甘酒を飲んで休憩';
+      }
     });
   }
+
   void changedata2() {
     setState(() {
-      mp += 10;
-      tp += 30;
+      mp -= 20;
+      tp += 3;
+      str = '町人から俵を貰いました！';
     });
   }
 
@@ -92,8 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Text(
-                    '移動に応じて\n俵を獲得したり失ったり',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    '$str',
+                    style: TextStyle(fontSize: 19, color: Colors.white),
                   ),
                 ],
               ),
@@ -126,25 +138,24 @@ class _MyHomePageState extends State<MyHomePage> {
                       colors: [Colors.blue, Colors.lightBlue[200]]),
                 ),
                 child: Text(
-                  'MP:$mp TP:$tp',
+                  'MP:$mp 俵:$tp',
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 )),
-            
             Container(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-                child: RaisedButton.icon(
-                  onPressed: changedata,
-                  icon: Icon(Icons.accessibility_new_rounded),
-                  label: Text('密です！'),
-                ),
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+              child: RaisedButton.icon(
+                onPressed: changedata,
+                icon: Icon(Icons.accessibility_new_rounded),
+                label: Text('密です！'),
+              ),
             ),
             Container(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-                child: RaisedButton.icon(
-                  onPressed: changedata2,
-                  icon: Icon(Icons.accessibility_new_rounded),
-                  label: Text('俵獲得'),
-                ),
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+              child: RaisedButton.icon(
+                onPressed: changedata2,
+                icon: Icon(Icons.accessibility_new_rounded),
+                label: Text('俵獲得'),
+              ),
             ),
             Image.asset(
               '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/IMG_3773.jpeg',
