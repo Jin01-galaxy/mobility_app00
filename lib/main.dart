@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobility_app00/pages/chaya_shop.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -9,8 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes:{
+        '/first': (context) => SecondRoute()
+      },
       title: 'Container',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(primarySwatch: Colors.brown),
       home: MyHomePage(),
     );
   }
@@ -63,14 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-              child: Text('和風イベント',
+              child: Text('行動変容',
                   style: TextStyle(fontSize: 15, color: Colors.blue[800])),
             ),
             Container(
                 padding: EdgeInsets.all(10.0),
                 // constraints: BoxConstraints.expand(),
                 width: 300,
-                height: 140,
+                height: 130,
                 alignment: Alignment.center,
                 // transform: Matrix4.rotationZ(0.5),
                 decoration: BoxDecoration(
@@ -101,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(20.0),
               color: Colors.brown,
               width: 300,
-              height: 70,
+              height: 50,
               alignment: Alignment.center,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -183,6 +187,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
+            
+            
             Image.asset(
               '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/IMG_3773.jpeg',
               width: 200,
@@ -193,3 +199,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class ThirdRoute {}
