@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobility_app00/pages/chaya_shop.dart';
+import 'package:mobility_app00/pages/mobility_page.dart';
+
 
 
 void main() {
@@ -10,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes:{
-        '/first': (context) => SecondRoute()
+      routes: {
+        '/second': (context) => SecondRoute(value:1),
+        '/third': (context) => ThirdRoute(value:2),
       },
       title: 'Container',
       theme: ThemeData(primarySwatch: Colors.brown),
@@ -105,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: EdgeInsets.all(20.0),
               color: Colors.brown,
               width: 300,
-              height: 50,
+              height: 40,
               alignment: Alignment.center,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -179,6 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(
                         builder: (context) => SecondRoute(value: tp),
                       ));
+                  // Navigator.pushNamed(context, '/second');
                 },
                 icon: Icon(Icons.home),
                 label: Text(
@@ -187,8 +191,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            
-            
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: RaisedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ThirdRoute(value: mp),
+                      ));
+                  
+                },
+                icon: Icon(Icons.access_alarm),
+                label: Text(
+                  '疫病にかかってしまった🤢',
+                  style: TextStyle(fontSize: 22, color: Colors.brown),
+                ),
+              ),
+            ),
             Image.asset(
               '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/IMG_3773.jpeg',
               width: 200,
@@ -199,5 +219,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-class ThirdRoute {}
