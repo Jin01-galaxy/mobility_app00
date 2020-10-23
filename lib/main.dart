@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-              child: Text('イベントが発生♬',
+              child: Text('和風イベント',
                   style: TextStyle(fontSize: 15, color: Colors.blue[800])),
             ),
             Container(
@@ -149,7 +149,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: RaisedButton.icon(
                 onPressed: changedata,
                 icon: Icon(Icons.accessibility_new_rounded),
-                label: Text('密です！'),
+                label: Text(
+                  '密です！',
+                  style: TextStyle(fontSize: 22, color: Colors.brown),
+                ),
               ),
             ),
             Container(
@@ -157,20 +160,27 @@ class _MyHomePageState extends State<MyHomePage> {
               child: RaisedButton.icon(
                 onPressed: changedata2,
                 icon: Icon(Icons.thumb_up),
-                label: Text('俵獲得'),
+                label: Text(
+                  '俵獲得',
+                  style: TextStyle(fontSize: 22, color: Colors.brown),
+                ),
               ),
             ),
             Container(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: RaisedButton.icon(
-                onPressed: (){
+                onPressed: () {
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SecondRoute()),
-                  );
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SecondRoute(value: tp),
+                      ));
                 },
                 icon: Icon(Icons.home),
-                label: Text('茶屋出現!!'),
+                label: Text(
+                  '茶屋出現!!',
+                  style: TextStyle(fontSize: 22, color: Colors.brown),
+                ),
               ),
             ),
             Image.asset(
