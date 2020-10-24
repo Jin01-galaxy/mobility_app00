@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mobility_app00/pages/chaya_shop.dart';
 import 'package:mobility_app00/pages/mobility_page.dart';
 
-
-
 void main() {
   runApp(MyApp());
 }
@@ -13,8 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/second': (context) => SecondRoute(value:1),
-        '/third': (context) => ThirdRoute(value:2),
+        '/second': (context) => SecondRoute(value: 1),
+        '/third': (context) => ThirdRoute(value: 2),
       },
       title: 'Container',
       theme: ThemeData(primarySwatch: Colors.brown),
@@ -35,10 +33,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void changedata() {
     setState(() {
-      mp += 20;
+      mp += 10;
 
       if (tp > 3) {
         tp = 0;
+        mp = 0;
         str = '置き引きに遭い俵を失いました！';
       } else if (3 >= tp && tp > 0) {
         tp -= 1;
@@ -51,9 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void changedata2() {
     setState(() {
-      mp -= 20;
-      tp += 1;
-      str = '町人から俵を貰いました！';
+      if (mp > 0) {
+        mp -= 10;
+        tp += 2;
+        str = '町人から俵を貰いました！';
+      } else {
+        tp += 1;
+        str = '町人から俵を貰いました！';
+      }
     });
   }
 
@@ -62,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.amberAccent,
       appBar: AppBar(
         title: Text('モビリティの巻'),
       ),
@@ -148,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       colors: [Colors.blue, Colors.lightBlue[200]]),
                 ),
                 child: Text(
-                  'MP:$mp 俵:$tp',
+                  '体力:$mp 俵:$tp',
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 )),
             Container(
@@ -157,7 +162,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: changedata,
                 icon: Icon(Icons.accessibility_new_rounded),
                 label: Text(
-                  '密です！',
+                  '楽したけど、密です！',
                   style: TextStyle(fontSize: 22, color: Colors.brown),
                 ),
               ),
@@ -168,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: changedata2,
                 icon: Icon(Icons.thumb_up),
                 label: Text(
-                  '俵獲得',
+                  'がんばったね！',
                   style: TextStyle(fontSize: 22, color: Colors.brown),
                 ),
               ),
@@ -200,7 +205,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(
                         builder: (context) => ThirdRoute(value: mp),
                       ));
-                  
                 },
                 icon: Icon(Icons.access_alarm),
                 label: Text(

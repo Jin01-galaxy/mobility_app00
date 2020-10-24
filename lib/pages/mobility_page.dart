@@ -17,7 +17,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
   void changedata4() {
     setState(() {
       if (value >= 0) {
-        value += 1;
+        value += 5;
 
         str4 = 'Mobility';
       } else if (counter < 4) {
@@ -32,12 +32,50 @@ class _ThirdRouteState extends State<ThirdRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text("宿屋の巻"),
       ),
       body: Center(
         child: Column(
           children: <Widget>[
+            Container(
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+              child: Text('体力15になるまでお休み',
+                  style: TextStyle(fontSize: 15, color: Colors.white)),
+            ),
+            Container(
+                padding: EdgeInsets.all(10.0),
+                // constraints: BoxConstraints.expand(),
+                width: 300,
+                height: 130,
+                alignment: Alignment.center,
+                // transform: Matrix4.rotationZ(0.5),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  border: Border.all(
+                    color: Colors.brown,
+                    width: 5.0,
+                    style: BorderStyle.solid,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.brown,
+                      blurRadius: 4.0,
+                      spreadRadius: 3.0,
+                    )
+                  ],
+                  gradient: LinearGradient(
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                      colors: [Colors.blue, Colors.lightBlue[200]]),
+                ),
+                child: Text(
+                  'Event Animation',
+                  style: TextStyle(fontSize: 30, color: Colors.white),
+                )),
+
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
@@ -68,11 +106,12 @@ class _ThirdRouteState extends State<ThirdRoute> {
                         colors: [Colors.blue, Colors.lightBlue[200]]),
                   ),
                   child: Text(
-                    'Mobility Point:$value ',
+                    '体力:$value ',
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   )),
             ),
-                 Container(
+            
+            Container(
               padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
               child: RaisedButton.icon(
                 onPressed: changedata4,
