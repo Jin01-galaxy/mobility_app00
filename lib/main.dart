@@ -39,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         tp = 0;
         mp = 0;
         str = '置き引きに遭い俵を失いました！';
+        
       } else if (3 >= tp && tp > 0) {
         tp -= 1;
         str = 'トンビに俵をつつかれました！';
@@ -50,18 +51,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void changedata2() {
     setState(() {
-      if (mp > 0) {
-        mp -= 10;
+      if (mp > 10) {
+        mp -= 20;
         tp += 2;
         str = '町人から俵を貰いました！';
-      } else {
+      } else if (mp == 10) {
+        mp = 0;
         tp += 1;
-        str = '町人から俵を貰いました！';
+        str = '元気なくなって来ました...';
+      } else if (mp == 0) {
+        str = '宿に行って休んでください';
       }
     });
   }
 
-  void changescene() {}
+  Alignment _alg = Alignment.topLeft;
+
+  void _onTap() => setState(() => _alg = Alignment.bottomRight);
 
   @override
   Widget build(BuildContext context) {
@@ -79,36 +85,46 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(fontSize: 15, color: Colors.blue[800])),
             ),
             Container(
-                padding: EdgeInsets.all(10.0),
-                // constraints: BoxConstraints.expand(),
-                width: 300,
-                height: 130,
-                alignment: Alignment.center,
-                // transform: Matrix4.rotationZ(0.5),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  border: Border.all(
-                    color: Colors.brown,
-                    width: 5.0,
-                    style: BorderStyle.solid,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.brown,
-                      blurRadius: 4.0,
-                      spreadRadius: 3.0,
-                    )
-                  ],
-                  gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [Colors.blue, Colors.lightBlue[200]]),
+              padding: EdgeInsets.all(10.0),
+              // constraints: BoxConstraints.expand(),
+              width: 300,
+              height: 130,
+              alignment: Alignment.center,
+              // transform: Matrix4.rotationZ(0.5),
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                border: Border.all(
+                  color: Colors.brown,
+                  width: 5.0,
+                  style: BorderStyle.solid,
                 ),
-                child: Text(
-                  'Event Animation',
-                  style: TextStyle(fontSize: 30, color: Colors.white),
-                )),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.brown,
+                    blurRadius: 4.0,
+                    spreadRadius: 3.0,
+                  )
+                ],
+                gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [Colors.blue, Colors.lightBlue[200]]),
+              ),
+              child: AnimatedAlign(
+                alignment: _alg,
+                duration: Duration(seconds: 1),
+                child: Container(
+                  child: Image.asset(
+                    // '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/94BC1C54-5F6A-4D78-9E2F-C76A8F014B66_4_5005_c.jpeg',
+                    '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/1CBDB416-C74A-4203-A7BB-0F0FA72DFAD5_1_201_a.jpeg',
+                  ),
+                  width: 100,
+                  height: 100,
+                  color: Colors.blueAccent,
+                ),
+              ),
+            ),
             Container(
               margin: EdgeInsets.all(20.0),
               color: Colors.brown,
@@ -220,6 +236,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: _onTap),
     );
   }
 }
