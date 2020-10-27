@@ -45,12 +45,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - /Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/IMG_3773.jpeg
-    - /Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/6CAF5471-7C02-43BC-8F43-2923F1E32409_1_201_a.jpeg
-    - //Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/94BC1C54-5F6A-4D78-9E2F-C76A8F014B66_4_5005_c.jpeg
-    - /Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/1CBDB416-C74A-4203-A7BB-0F0FA72DFAD5_1_201_a.jpeg
-    - /Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/29AF14E3-2A75-4EF2-B82D-2C5372113DF1_1_105_c.jpeg
+assets:
+  - /Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/IMG_3773.jpeg
+  - /Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/IMG_3838.jpeg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

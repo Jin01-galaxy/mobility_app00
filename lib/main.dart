@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Alignment _alg = Alignment.topLeft;
-
+  
   void _onTap() => setState(() => _alg = Alignment.bottomRight);
 
   @override
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: Alignment.center,
               // transform: Matrix4.rotationZ(0.5),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.white,
                 border: Border.all(
                   color: Colors.brown,
                   width: 5.0,
@@ -106,21 +106,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     spreadRadius: 3.0,
                   )
                 ],
-                gradient: LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [Colors.blue, Colors.lightBlue[200]]),
+                
               ),
               child: AnimatedAlign(
                 alignment: _alg,
                 duration: Duration(seconds: 1),
                 child: Container(
                   child: Image.asset(
-                    // '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/94BC1C54-5F6A-4D78-9E2F-C76A8F014B66_4_5005_c.jpeg',
-                    '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/1CBDB416-C74A-4203-A7BB-0F0FA72DFAD5_1_201_a.jpeg',
+                    '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/IMG_3838.jpeg',
                   ),
-                  width: 100,
-                  height: 100,
+                  width: 108,
+                  height: 120,
                   color: Colors.blueAccent,
                 ),
               ),
@@ -230,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Image.asset(
-              '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/images/IMG_3773.jpeg',
+              '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/IMG_3773.jpeg',
               width: 200,
             ),
           ],
