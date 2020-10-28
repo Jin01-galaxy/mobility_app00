@@ -33,10 +33,15 @@ class _SecondRouteState extends State<SecondRoute> {
     });
   }
 
+  Alignment _alg = Alignment.topLeft;
+
+  void _onTap() => setState(() => _alg = Alignment.bottomRight);
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.teal[300],
       appBar: AppBar(
         title: Text("茶屋の巻"),
       ),
@@ -46,53 +51,42 @@ class _SecondRouteState extends State<SecondRoute> {
             Container(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
               child: Text('企業スポンサーのお釜',
-                  style: TextStyle(fontSize: 15, color: Colors.white)),
+                  style: TextStyle(fontSize: 25, color: Colors.white)),
             ),
             Container(
-                padding: EdgeInsets.all(10.0),
-                // constraints: BoxConstraints.expand(),
-                width: 300,
-                height: 130,
-                alignment: Alignment.center,
-                // transform: Matrix4.rotationZ(0.5),
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  border: Border.all(
-                    color: Colors.brown,
-                    width: 5.0,
-                    style: BorderStyle.solid,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.brown,
-                      blurRadius: 4.0,
-                      spreadRadius: 3.0,
-                    )
-                  ],
-                  gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                      colors: [Colors.blue, Colors.lightBlue[200]]),
-                ),
-                child: Text(
-                  'Event Animation',
-                  style: TextStyle(fontSize: 30, color: Colors.white),
-                )),
-            Container(
-              margin: EdgeInsets.all(10.0),
-              color: Colors.brown,
+              padding: EdgeInsets.all(10.0),
+              // constraints: BoxConstraints.expand(),
               width: 300,
-              height: 50,
+              height: 130,
               alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Text(
-                    '$str2',
-                    style: TextStyle(fontSize: 17, color: Colors.white),
-                  ),
+              // transform: Matrix4.rotationZ(0.5),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.brown,
+                  width: 5.0,
+                  style: BorderStyle.solid,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.brown,
+                    blurRadius: 4.0,
+                    spreadRadius: 3.0,
+                  )
                 ],
+              ),
+              child: AnimatedAlign(
+                alignment: _alg,
+                duration: Duration(seconds: 1),
+                child: Container(
+                  child: Image.asset(
+                    'images/IMG_3872.jpeg',
+                  ),
+                  width: 470,
+                  height: 180,
+                  color: Colors.white,
+                ),
               ),
             ),
             Container(
@@ -120,7 +114,7 @@ class _SecondRouteState extends State<SecondRoute> {
                   gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
-                      colors: [Colors.blue, Colors.lightBlue[200]]),
+                      colors: [Colors.teal[400], Colors.teal[100]]),
                 ),
                 child: Text(
                   '俵:$value おにぎり:$onigiri',

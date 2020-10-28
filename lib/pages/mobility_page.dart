@@ -69,7 +69,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
                   gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
-                      colors: [Colors.blue, Colors.lightBlue[200]]),
+                      colors: [Colors.blue[500], Colors.lightBlue[200]]),
                 ),
                 child: Text(
                   'Event Animation',
@@ -103,7 +103,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
                     gradient: LinearGradient(
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
-                        colors: [Colors.blue, Colors.lightBlue[200]]),
+                        colors: [Colors.blue[500], Colors.lightBlue[200]]),
                   ),
                   child: Text(
                     '体力:$value ',
@@ -120,6 +120,15 @@ class _ThirdRouteState extends State<ThirdRoute> {
                   '甘酒を飲む',
                   style: TextStyle(fontSize: 22, color: Colors.brown),
                 ),
+              ),
+            ),
+            Container(
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate back to first route when tapped.
+                  Navigator.pop(context, value);
+                },
+                child: Text('Home Screen!'),
               ),
             ),
           ],

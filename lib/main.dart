@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        // '/first': (context) => MyApp(value: 1),
+        
         '/second': (context) => SecondRoute(value: 1),
         '/third': (context) => ThirdRoute(value: 2),
       },
@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.amberAccent,
+      backgroundColor: Colors.blue[200],
       appBar: AppBar(
         title: Text('モビリティの巻'),
       ),
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
               child: Text('行動変容',
-                  style: TextStyle(fontSize: 15, color: Colors.blue[800])),
+                  style: TextStyle(fontSize: 5, color: Colors.brown)),
             ),
             Container(
               padding: EdgeInsets.all(10.0),
@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 duration: Duration(seconds: 1),
                 child: Container(
                   child: Image.asset(
-                    'images/IMG_3836.png',
+                    'images/IMG_3838.jpeg',
                   ),
                   width: 108,
                   height: 120,
@@ -163,11 +163,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.centerRight,
-                      colors: [Colors.blue, Colors.lightBlue[200]]),
+                      colors: [Colors.blue[400], Colors.blue[200]]),
                 ),
                 child: Text(
                   '体力:$mp 俵:$tp',
-                  style: TextStyle(fontSize: 25, color: Colors.white),
+                  style: TextStyle(fontSize: 25, color: Colors.lightBlue[50]),
                 )),
             Container(
               padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
@@ -202,27 +202,27 @@ class _MyHomePageState extends State<MyHomePage> {
                       ));
                   print(result);
                   tp = result;
-                  setState(() {
-                    
-                  });
+                  setState(() {});
                 },
                 icon: Icon(Icons.home),
                 label: Text(
-                  '茶屋へ：残った俵$tp',
+                  '茶屋が開店してます！',
                   style: TextStyle(fontSize: 22, color: Colors.brown),
                 ),
-                
               ),
             ),
             Container(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: RaisedButton.icon(
-                onPressed: () {
-                  Navigator.push(
+                onPressed: () async {
+                  var result = await Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ThirdRoute(value: mp),
                       ));
+                  print(result);
+                  mp = result;
+                  setState(() {});
                 },
                 icon: Icon(Icons.access_alarm),
                 label: Text(
@@ -235,7 +235,6 @@ class _MyHomePageState extends State<MyHomePage> {
               'images/IMG_3846.png',
               width: 400,
             ),
-            
           ],
         ),
       ),
