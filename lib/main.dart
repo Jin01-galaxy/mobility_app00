@@ -113,11 +113,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 duration: Duration(seconds: 1),
                 child: Container(
                   child: Image.asset(
-                    '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/IMG_3838.jpeg',
+                    'images/IMG_3836.png',
                   ),
                   width: 108,
                   height: 120,
-                  color: Colors.blueAccent,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -226,9 +226,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Image.asset(
-              '/Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/IMG_3773.jpeg',
-              width: 200,
+              'images/IMG_3836.png',
+              width: 100,
             ),
+            // Image(image: AssetImage('/Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/Mobility App Logo.png')),
           ],
         ),
       ),
