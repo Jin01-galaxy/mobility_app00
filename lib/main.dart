@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
+        // '/first': (context) => MyApp(value: 1),
         '/second': (context) => SecondRoute(value: 1),
         '/third': (context) => ThirdRoute(value: 2),
       },
@@ -39,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
         tp = 0;
         mp = 0;
         str = '置き引きに遭い俵を失いました！';
-        
       } else if (3 >= tp && tp > 0) {
         tp -= 1;
         str = 'トンビに俵をつつかれました！';
@@ -66,8 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Alignment _alg = Alignment.topLeft;
-  
+
   void _onTap() => setState(() => _alg = Alignment.bottomRight);
+
+  int point = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +108,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     spreadRadius: 3.0,
                   )
                 ],
-                
               ),
               child: AnimatedAlign(
                 alignment: _alg,
@@ -193,19 +194,24 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
               child: RaisedButton.icon(
-                onPressed: () {
-                  Navigator.push(
+                onPressed: () async {
+                  var result = await Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => SecondRoute(value: tp),
                       ));
-                  // Navigator.pushNamed(context, '/second');
+                  print(result);
+                  tp = result;
+                  setState(() {
+                    
+                  });
                 },
                 icon: Icon(Icons.home),
                 label: Text(
-                  '茶屋出現!!',
+                  '茶屋へ：残った俵$tp',
                   style: TextStyle(fontSize: 22, color: Colors.brown),
                 ),
+                
               ),
             ),
             Container(
@@ -226,10 +232,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Image.asset(
-              'images/IMG_3836.png',
-              width: 100,
+              'images/IMG_3846.png',
+              width: 400,
             ),
-            // Image(image: AssetImage('/Users/jinsuzuki/Development/Flutter_project/mobility_app00/assets/Mobility App Logo.png')),
+            
           ],
         ),
       ),

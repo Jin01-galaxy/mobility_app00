@@ -141,7 +141,7 @@ class _SecondRouteState extends State<SecondRoute> {
               child: ElevatedButton(
                 onPressed: () {
                   // Navigate back to first route when tapped.
-                  Navigator.pop(context);
+                  Navigator.pop(context, value);
                 },
                 child: Text('Home Screen!'),
               ),
